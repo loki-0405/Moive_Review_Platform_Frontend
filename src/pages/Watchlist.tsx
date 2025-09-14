@@ -73,7 +73,7 @@ export default function Watchlist() {
         return;
       }
       try {
-        const res = await axios.get(`http://localhost:5000/api/users/${user.id}/watchlist`, {
+        const res = await axios.get(`https://moive-review-platform-backend-3.onrender.com/api/users/${user.id}/watchlist`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setWatchlistItems(res.data);
@@ -131,7 +131,7 @@ export default function Watchlist() {
   const handleRemove = async (movieId: string) => {
     if (!user) return;
     try {
-      await axios.delete(`http://localhost:5000/api/users/${user.id}/watchlist/${movieId}`, {
+      await axios.delete(`https://moive-review-platform-backend-3.onrender.com/api/users/${user.id}/watchlist/${movieId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setWatchlistItems(prev => prev.filter(item => item.movie._id !== movieId));
