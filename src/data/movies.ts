@@ -1,0 +1,141 @@
+import { Movie, Review } from '@/types/movie';
+import quantumBreachPoster from '@/assets/movie-quantum-breach.jpg';
+import dragonsCrownPoster from '@/assets/movie-dragons-crown.jpg';
+import midnightShadowsPoster from '@/assets/movie-midnight-shadows.jpg';
+
+export const movies: Movie[] = [
+  {
+    id: '1',
+    title: 'Quantum Breach',
+    year: 2024,
+    genre: ['Sci-Fi', 'Action', 'Thriller'],
+    rating: 8.7,
+    description: 'In a near-future where quantum computing has unlocked parallel dimensions, a cyber-security expert discovers a breach that threatens all of reality. Racing against time, she must navigate through quantum layers to prevent a catastrophic collapse.',
+    poster: quantumBreachPoster,
+    duration: '2h 15m',
+    director: 'Sarah Chen',
+    cast: ['Emma Stone', 'Oscar Isaac', 'Lupita Nyong\'o', 'John Boyega'],
+    reviewCount: 1247,
+    featured: true,
+    trending: true,
+  },
+  {
+    id: '2',
+    title: 'Dragon\'s Crown',
+    year: 2024,
+    genre: ['Fantasy', 'Adventure', 'Epic'],
+    rating: 9.1,
+    description: 'When an ancient prophecy awakens the last dragon, a reluctant hero must claim the legendary crown to unite the warring kingdoms. An epic tale of courage, magic, and the bonds that transcend kingdoms.',
+    poster: dragonsCrownPoster,
+    duration: '2h 45m',
+    director: 'Peter McKinnon',
+    cast: ['Chris Hemsworth', 'Zendaya', 'Benedict Cumberbatch', 'Tilda Swinton'],
+    reviewCount: 2156,
+    featured: true,
+  },
+  {
+    id: '3',
+    title: 'Midnight Shadows',
+    year: 2024,
+    genre: ['Horror', 'Thriller', 'Mystery'],
+    rating: 7.9,
+    description: 'A paranormal investigator returns to her childhood home to confront the shadows that have haunted her family for generations. Some secrets are better left buried.',
+    poster: midnightShadowsPoster,
+    duration: '1h 52m',
+    director: 'Jordan Peele',
+    cast: ['Lupita Nyong\'o', 'Sterling K. Brown', 'Elisabeth Moss', 'Michael Shannon'],
+    reviewCount: 987,
+    trending: true,
+  },
+  {
+    id: '4',
+    title: 'Neon Nights',
+    year: 2024,
+    genre: ['Crime', 'Drama', 'Neo-Noir'],
+    rating: 8.3,
+    description: 'A detective in a neon-soaked cyberpunk city investigates a series of murders that blur the line between human and artificial intelligence.',
+    poster: quantumBreachPoster, // Reusing for now
+    duration: '2h 8m',
+    director: 'Denis Villeneuve',
+    cast: ['Ryan Gosling', 'Ana de Armas', 'Mahershala Ali', 'Sylvia Hoeks'],
+    reviewCount: 1456,
+  },
+  {
+    id: '5',
+    title: 'The Last Symphony',
+    year: 2024,
+    genre: ['Drama', 'Music', 'Historical'],
+    rating: 8.9,
+    description: 'The untold story of a composer who wrote his final masterpiece while hiding from persecution during wartime. A testament to the power of art and human resilience.',
+    poster: dragonsCrownPoster, // Reusing for now
+    duration: '2h 22m',
+    director: 'Greta Gerwig',
+    cast: ['Saoirse Ronan', 'Adam Driver', 'Timothée Chalamet', 'Frances McDormand'],
+    reviewCount: 834,
+  },
+  {
+    id: '6',
+    title: 'Void Walker',
+    year: 2024,
+    genre: ['Sci-Fi', 'Horror', 'Space'],
+    rating: 8.1,
+    description: 'A deep space salvage crew encounters something that should not exist in the void between stars. Isolation becomes terror in the darkness of space.',
+    poster: midnightShadowsPoster, // Reusing for now
+    duration: '1h 58m',
+    director: 'Ridley Scott',
+    cast: ['Rebecca Ferguson', 'Oscar Isaac', 'David Harbour', 'Thomasin McKenzie'],
+    reviewCount: 1123,
+  }
+];
+
+export const reviews: Review[] = [
+  {
+    id: '1',
+    movieId: '1',
+    userId: 'user1',
+    userName: 'CinemaLover92',
+    userAvatar: '🎬',
+    rating: 5,
+    comment: 'Absolutely mind-bending! The quantum mechanics concepts are handled brilliantly, and the visual effects are stunning. Emma Stone delivers a powerhouse performance.',
+    date: '2024-03-15',
+    helpful: 42,
+  },
+  {
+    id: '2',
+    movieId: '1',
+    userId: 'user2',
+    userName: 'SciFiFanatic',
+    userAvatar: '🚀',
+    rating: 4,
+    comment: 'Great concept and execution, though the third act felt a bit rushed. The parallel dimension sequences are absolutely gorgeous.',
+    date: '2024-03-14',
+    helpful: 28,
+  },
+  {
+    id: '3',
+    movieId: '2',
+    userId: 'user3',
+    userName: 'FantasyQuest',
+    userAvatar: '🐉',
+    rating: 5,
+    comment: 'Epic in every sense of the word! The dragon sequences are breathtaking and the story has real emotional depth. A new fantasy classic.',
+    date: '2024-03-16',
+    helpful: 67,
+  },
+];
+
+export const genres = [
+  'Action',
+  'Adventure',
+  'Comedy',
+  'Crime',
+  'Drama',
+  'Fantasy',
+  'Horror',
+  'Mystery',
+  'Romance',
+  'Sci-Fi',
+  'Thriller',
+  'War',
+  'Western'
+];

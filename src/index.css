@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cinematic Movie Platform Design System - Dark Theme */
+
+@layer base {
+  :root {
+    /* Core Cinema Dark Theme */
+    --background: 220 13% 5%;
+    --foreground: 210 40% 98%;
+
+    /* Surface Colors */
+    --card: 220 13% 8%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 220 13% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand Colors - Cinematic Purple */
+    --primary: 271 81% 56%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 271 81% 66%;
+
+    /* Secondary - Electric Teal */
+    --secondary: 188 94% 43%;
+    --secondary-foreground: 220 13% 5%;
+
+    /* Surfaces & Interaction */
+    --muted: 220 13% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 271 81% 56%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Status Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 13% 5%;
+
+    /* Borders & Inputs */
+    --border: 220 13% 15%;
+    --input: 220 13% 12%;
+    --ring: 271 81% 56%;
+
+    /* UI Spacing */
+    --radius: 0.75rem;
+
+    /* Cinematic Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 13% 5%), hsl(271 81% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(220 13% 8%), hsl(220 13% 10%));
+    --gradient-glow: linear-gradient(135deg, hsl(271 81% 56% / 0.2), hsl(188 94% 43% / 0.1));
+    
+    /* Movie Platform Specific */
+    --movie-card: 220 13% 9%;
+    --movie-card-hover: 220 13% 12%;
+    --rating-gold: 45 93% 58%;
+    --rating-empty: 220 13% 25%;
+    
+    /* Cinematic Shadows */
+    --shadow-movie-card: 0 10px 30px -10px hsl(220 13% 3% / 0.8);
+    --shadow-glow: 0 0 30px hsl(271 81% 56% / 0.3);
+    --shadow-intense: 0 20px 40px -15px hsl(220 13% 3% / 0.9);
+
+    /* Animation Easing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(220 13% 3%));
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Movie Card Hover Effects */
+  .movie-card {
+    @apply relative overflow-hidden rounded-xl transition-all duration-300;
+    background: linear-gradient(145deg, hsl(var(--movie-card)), hsl(var(--movie-card-hover)));
+    box-shadow: var(--shadow-movie-card);
+  }
+
+  .movie-card:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow), var(--shadow-intense);
+  }
+
+  /* Cinematic Button Variants */
+  .btn-hero {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  }
+
+  .btn-hero::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--secondary)));
+  }
+
+  .btn-hero:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-hero > * {
+    @apply relative z-10;
+  }
+
+  /* Star Rating Glow */
+  .star-rating {
+    @apply transition-all duration-200;
+  }
+
+  .star-filled {
+    color: hsl(var(--rating-gold));
+    filter: drop-shadow(0 0 8px hsl(var(--rating-gold) / 0.5));
+  }
+
+  .star-empty {
+    color: hsl(var(--rating-empty));
+  }
+
+  .star-rating:hover .star-filled {
+    filter: drop-shadow(0 0 12px hsl(var(--rating-gold) / 0.8));
+  }
+
+  /* Cinematic Text Glow */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 20px hsl(var(--secondary) / 0.5);
+  }
+
+  /* Loading Skeleton */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+    background: linear-gradient(90deg, hsl(var(--muted)), hsl(var(--muted-foreground) / 0.1), hsl(var(--muted)));
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
