@@ -28,7 +28,7 @@ export default function MovieListing() {
   useEffect(() => {
     async function fetchMovies() {
       try {
-        const res = await axios.get('https://moive-review-platform-backend-3.onrender.com/movies');
+        const res = await axios.get('https://moive-review-platform-backend-3.onrender.com/api/movies');
         const moviesFromApi = res.data.data || [];
 
         // Map API fields to component's expected fields
